@@ -7,10 +7,11 @@ Estructura sugerida para el arbol de directorios que se cargaran automáticament
 |
 | - config  -> contiene los archivos de configuración para Airflow.
 | - dags    -> Acá estarán los dags.
-| - logs    -> En esta carpeta guerdará los logs al momento de ejecución de las máquinas (este irá creciendo y es bueno ir limpiando si no se requiere para seguimientos).
-| - plugins -> los plugins que se vayan adicionando al entorno de Airflow
+| - logs    -> En esta carpeta guerdarán los logs al momento de ejecución de las máquinas (este irá creciendo y es bueno ir limpiando si no se requiere para seguimientos).
+| - plugins -> los plugins que se vayan adicionando al entorno de Airflow.
 | - secrets -> En esta carpeta se guardarán las llaves necesarias para conexiones con BD o Clouds.
 ```
+
 Archivos que contiene el proyecto necesarios para su funcionamiento:
 
 ``` cmd
@@ -19,6 +20,7 @@ Archivos que contiene el proyecto necesarios para su funcionamiento:
 | - Dockerfile        -> Contiene las instrucciones para la creación de la imagen de Airflow y lee el archivo de requirements.txt para satisfacer libreriás adicionales.
 | - ecosystem.yaml    -> Archivo para la creación de las máquinas usadas para que funcione Airflow, en este se deberán modificar según las necesidades.
                          en image: ${AIRFLOW_IMAGE_NAME:-airflowpts} cambiar airflowpts por el nombre de la imagen asignada cuando se hace el build del Dockerfile
+                         tomado de https://github.com/anilkulkarni87/airflow-docker/blob/main/docker-compose.yaml.
 | - requirements.txt  -> En este archivo se adicionan todas las librerías adicionales para ser cargadas al momento de creación de la imagen.
 ```
 Ejemplo de estructura completa de un proyecto:
@@ -50,7 +52,7 @@ Ejemplo de estructura completa de un proyecto:
 | - requirements.txt
 ```
 
-Para la creación de la image se está usando docker y la instrucción es la siguiente:
+Para la creación de la imagen se está usando docker y la instrucción es la siguiente:
 ```nginx
 docker build -t <nombre para la imagen> .
 ```
@@ -65,3 +67,6 @@ Para detener los contenedores se debe ejecutar el comando
 ```nginx
  docker compose -f ecosystem.yaml down
 ```
+Para el ingreso al web server de Airflow vas a `http://localhost:8080` (se puede cambiar el puerto 8080 desde el archivo ecosystem.yaml) y el usuario y constraseña son `airflow`
+
+### ¡Buen Viaje!
