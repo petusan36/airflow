@@ -63,5 +63,5 @@ para la ejecución del ambiente completo se debe ejecutar el siguiente comando (
 
 Para detener los contenedores se debe ejecutar el comando
 ```nginx
- docker compose ecosystem.yaml down
+ docker compose -f ecosystem.yaml down
 ```
