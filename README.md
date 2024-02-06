@@ -58,7 +58,7 @@ El archivo `Dockerfile` debe estar presente en la carpeta donde se ejecuta el co
 
 para la ejecución del ambiente completo se debe ejecutar el siguiente comando ( ` -d ` es para que se ejecute en modo desatendido)
 ```nginx
- docker compose ecosystem.yaml up -d
+ docker compose -f ecosystem.yaml up -d
 ```
 
 Para detener los contenedores se debe ejecutar el comando
